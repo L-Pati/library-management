@@ -4,7 +4,7 @@ import java.util.*;
 import com.twop.librarymanagement.booksservice.entities.Book;
 
 public class BookRepository {
-    private List<Book> booksStorage;
+    public List<Book> booksStorage;
 
     public BookRepository() {
         booksStorage = Arrays.asList(
