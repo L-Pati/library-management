@@ -10,4 +10,20 @@ public class BookService {
     public List<Book> getAllBooks() {
         return repo.booksStorage;
     }
+
+    public Book getBookByID(int id) {
+        Book selectedBook = null;
+
+        for(Book book : repo.booksStorage) {
+            if(book.getID() == id) {
+                selectedBook = book;
+            }
+        }
+
+        if(selectedBook == null) {
+            throw new RuntimeException("you don't have a book!! :(");
+        }
+
+        return selectedBook;
+    }
 }

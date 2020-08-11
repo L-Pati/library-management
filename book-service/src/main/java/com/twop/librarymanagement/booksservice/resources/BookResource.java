@@ -4,6 +4,7 @@ import java.util.*;
 import com.twop.librarymanagement.booksservice.entities.Book;
 import com.twop.librarymanagement.booksservice.services.BookService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +21,10 @@ public class BookResource {
     @GetMapping
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
+    }
+
+    @GetMapping("/{id}")
+    public Book getBookByID(@PathVariable("id") int id) {
+        return bookService.getBookByID(id);
     }
 }
