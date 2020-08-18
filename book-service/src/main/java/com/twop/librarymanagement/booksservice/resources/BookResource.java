@@ -27,4 +27,9 @@ public class BookResource {
     public Book getBookByID(@PathVariable("id") int id) {
         return bookService.getBookByID(id);
     }
+
+    @GetMapping("/search/{query}")
+    public List<Book> getBookByQuery(@PathVariable("query") String query) {
+        return bookService.getBookByQuery(query);
+    }
 }
