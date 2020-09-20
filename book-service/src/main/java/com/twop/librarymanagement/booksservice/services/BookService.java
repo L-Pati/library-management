@@ -3,9 +3,7 @@ package com.twop.librarymanagement.booksservice.services;
 import java.util.*;
 import com.twop.librarymanagement.booksservice.entities.Book;
 import com.twop.librarymanagement.booksservice.repository.BookRepository;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class BookService {
     private BookRepository repo = new BookRepository();
 
@@ -42,5 +40,19 @@ public class BookService {
         }
 
         return bookResult;
+    }
+
+    public String addBook(Book book) {
+        return repo.addBook(book);
+    }
+
+    public String checkOutBook(int bookId) {
+
+        return "Success!";
+    }
+
+    public String returnBook(int bookId) {
+
+        return "Success!";
     }
 }

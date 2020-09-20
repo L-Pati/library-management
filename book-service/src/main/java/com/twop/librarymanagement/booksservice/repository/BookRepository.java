@@ -17,4 +17,9 @@ public class BookRepository {
                 new Book("Steve Jobs", "Walter Isaacson", 516171)
         );
     }
+
+    public String addBook(Book book) {
+        booksStorage.add(book);
+        return "Success!";
+    }
 }
