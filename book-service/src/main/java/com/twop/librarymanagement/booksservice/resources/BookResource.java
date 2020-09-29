@@ -3,12 +3,14 @@ package com.twop.librarymanagement.booksservice.resources;
 import java.util.*;
 import com.twop.librarymanagement.booksservice.entities.Book;
 import com.twop.librarymanagement.booksservice.services.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/books")
 public class BookResource {
-    private BookService bookService = new BookService();
+    @Autowired
+    private BookService bookService;
 
     @GetMapping("/greet")
     public String greet() {
@@ -31,7 +33,7 @@ public class BookResource {
     }
 
     @PostMapping
-    public String createBook(Book book) {
+    public String createBook(@RequestBody Book book) {
         return bookService.addBook(book);
     }
 
