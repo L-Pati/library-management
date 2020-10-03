@@ -48,4 +48,8 @@ public class Book {
         this.returnDate = null;
         this.available =  true;
     }
+
+    public Boolean isAvailable() {
+        return available;
+    }
 }

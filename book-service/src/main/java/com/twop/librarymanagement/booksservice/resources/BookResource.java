@@ -2,6 +2,7 @@ package com.twop.librarymanagement.booksservice.resources;
 
 import java.util.*;
 import com.twop.librarymanagement.booksservice.entities.Book;
+import com.twop.librarymanagement.booksservice.entities.Books;
 import com.twop.librarymanagement.booksservice.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +19,12 @@ public class BookResource {
     }
 
     @GetMapping
-    public List<Book> getAllBooks() {
+    public Books getAllBooks() {
         return bookService.getAllBooks();
     }
 
     @GetMapping("/{id}")
-    public Book getBookByID(@PathVariable("id") int id) {
+    public Book getBookByID(@PathVariable("id") long id) {
         return bookService.getBookByID(id);
     }
 
