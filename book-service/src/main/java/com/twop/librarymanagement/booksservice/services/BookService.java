@@ -31,7 +31,10 @@ public class BookService {
     }
 
     public String addBook(Book book) {
-        bookRepository.save(book);
+        Book newBook = new Book();
+        newBook.setTitle(book.getTitle());
+        newBook.setAuthor(book.getAuthor());
+        bookRepository.save(newBook);
         return "Success!";
     }
 
