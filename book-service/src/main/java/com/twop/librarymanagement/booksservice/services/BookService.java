@@ -32,6 +32,14 @@ public class BookService {
 
     public String addBook(Book book) {
         Book newBook = new Book();
+        if(book.getTitle() == null) {
+            book.setTitle("Fake Title");
+        }
+
+        if(book.getAuthor() == null) {
+            book.setAuthor("Fake Author");
+        }
+        
         newBook.setTitle(book.getTitle());
         newBook.setAuthor(book.getAuthor());
         bookRepository.save(newBook);
