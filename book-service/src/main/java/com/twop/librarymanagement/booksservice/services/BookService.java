@@ -30,12 +30,16 @@ public class BookService {
         return bookResult;
     }
 
-    public String addBook(Book book) {
+    public void addBook(Book book) {
         Book newBook = new Book();
+
         newBook.setTitle(book.getTitle());
         newBook.setAuthor(book.getAuthor());
         bookRepository.save(newBook);
-        return "Success!";
+    }
+
+    public void deleteBook(Book book) {
+        bookRepository.delete(book);
     }
 
     public String checkOutBook(long bookId) {
@@ -43,20 +47,19 @@ public class BookService {
 
         if(book.isAvailable()) {
             book.checkOutBook();
+            bookRepository.save(book);
+            System.out.println(book.isAvailable());
             return "Success!";
         } else {
-            return "Could not checkout book.";
+            return "Failure :(";
         }
     }
 
-    public String returnBook(long bookId) {
+    public void returnBook(long bookId) {
         Book book = bookRepository.findById(bookId).get();
 
         if(!book.isAvailable()) {
             book.returnBook();
-            return "Success!";
-        } else {
-            return "Book is already returned";
         }
     }
 }

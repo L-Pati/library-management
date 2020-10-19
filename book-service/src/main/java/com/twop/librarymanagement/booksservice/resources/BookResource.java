@@ -34,8 +34,13 @@ public class BookResource {
     }
 
     @PostMapping
-    public String createBook(@RequestBody Book book) {
-        return bookService.addBook(book);
+    public void createBook(@RequestBody Book book) {
+        bookService.addBook(book);
+    }
+
+    @DeleteMapping
+    public void deleteBook(@RequestBody Book book) {
+        bookService.deleteBook(book);
     }
 
     @PutMapping("/checkout/{bookId}")
@@ -44,7 +49,7 @@ public class BookResource {
     }
 
     @PutMapping("/return/{bookId}")
-    public String returnBook(@PathVariable("bookId") int bookId) {
-        return bookService.returnBook(bookId);
+    public void returnBook(@PathVariable("bookId") int bookId) {
+        bookService.returnBook(bookId);
     }
 }
